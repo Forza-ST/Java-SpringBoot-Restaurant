@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forza's Haute Cuisine Restaurant, Washington, DC</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <div th:replace="fragments/navbar :: navbar"></div>
+
+    <div class="header-text">
+        <h1>Forza's Haute Cuisine</h1>
+        <h2>Washington, DC</h2>
+    </div>
+
+    <div class="hero">
+        <!-- Hero section content -->
+    </div>
+
+    <div class="container my-5">
+        <!-- Menu Section -->
+        <div class="row text-center">
+            <div class="col-md-4 menu-section">
+                <h2>Appetizers</h2>
+                <ul class="list-group">
+                    <li th:each="item : ${appetizers}" class="list-group-item" 
+                        th:attr="data-toggle='modal', data-target='#myModal-appetizers-' + ${itemStat.count}">
+                        <strong th:text="${item.name}"></strong>
+                    </li>
+                </ul>
+            </div>
+            <!-- Similar sections for main courses and desserts -->
+        </div>
+
+        <div class="google-map">
+            <iframe src="https://www.google.com/maps/embed?..." width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <div th:replace="fragments/footer :: footer"></div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

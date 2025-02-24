@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Make a Reservation - Forza Restaurant</title>
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+    <div th:replace="fragments/navbar :: navbar"></div>
+    
+    <div class="container my-5">
+        <div class="reservation-form">
+            <h2 class="text-center mb-4">Make a Reservation</h2>
+            <form th:action="@{/reservations}" method="post" th:object="${reservation}">
+                <div class="form-group">
+                    <label for="customerName">Name</label>
+                    <input type="text" class="form-control" id="customerName" th:field="*{customerName}" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" th:field="*{email}" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="tel" class="form-control" id="phone" th:field="*{phone}" required>
+                </div>
+                <div class="form-group">
+                    <label for="dateTime">Date & Time</label>
+                    <input type="text" class="form-control" id="dateTime" th:field="*{dateTime}" required>
+                </div>
+                <div class="form-group">
+                    <label for="partySize">Number of Guests</label>
+                    <select class="form-control" id="partySize" th:field="*{partySize}" required>
+                        <option value="1">1 Person</option>
+                        <option value="2">2 People</option>
+                        <option value="3">3 People</option>
+                        <option value="4">4 People</option>
+                        <option value="5">5 People</option>
+                        <option value="6">6 People</option>
+                        <option value="7">7 People</option>
+                        <option value="8">8 People</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="specialRequests">Special Requests</label>
+                    <textarea class="form-control" id="specialRequests" th:field="*{specialRequests}" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Make Reservation</button>
+            </form>
+        </div>
+    </div>
+
+    <div th:replace="fragments/footer :: footer"></div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        flatpickr("#dateTime", {
+            enableTime: true,
+            minTime: "17:00",
+            maxTime: "23:00",
+            minDate: "today",
+            dateFormat: "Y-m-d H:i"
+        });
+    </script>
+</body>
+</html>

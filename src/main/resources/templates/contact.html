@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Contact Us - Forza Restaurant</title>
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .map-container {
+            height: 400px;
+            width: 100%;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .contact-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .contact-form {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 10px;
+        }
+        .contact-info h3, .contact-form h3 {
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+        .contact-info p {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+        .contact-info i {
+            margin-right: 10px;
+            color: #d4af37;
+        }
+    </style>
+</head>
+<body>
+    <div th:replace="fragments/navbar :: navbar"></div>
+
+    <div class="container my-5">
+        <h1 class="text-center mb-5">Contact Us</h1>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="contact-info">
+                    <h3>Visit Our Restaurant</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> 1115 V St NW</p>
+                    <p>Washington, DC 20001</p>
+                    <p><i class="fas fa-phone"></i> (202) 555-7890</p>
+                    <p><i class="fas fa-envelope"></i> info@forzarestaurant.com</p>
+                    
+                    <h3 class="mt-4">Hours</h3>
+                    <p>Monday - Thursday: 11:00 AM - 10:00 PM</p>
+                    <p>Friday - Saturday: 11:00 AM - 11:00 PM</p>
+                    <p>Sunday: 11:00 AM - 9:00 PM</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea class="form-control" id="message" rows="5" placeholder="Enter your message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3104.4776036525404!2d-77.03050848465996!3d38.91688757957031!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b7e7a6bfe475%3A0x1f79db0f4a3e993!2s1115%20V%20St%20NW%2C%20Washington%2C%20DC%2020001!5e0!3m2!1sen!2sus!4v1614567888888!5m2!1sen!2sus" 
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+    <div th:replace="fragments/footer :: footer"></div>
+
+    <!-- Include Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>     
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Menu - Forza Restaurant</title>
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div th:replace="fragments/navbar :: navbar"></div>
+
+    <div class="container my-5">
+        <h1 class="text-center mb-5">Our Menu</h1>
+
+        <div class="row">
+            <!-- Appetizers -->
+            <div class="col-md-4">
+                <h2 class="menu-section">Appetizers</h2>
+                <div class="menu-item" th:each="item : ${appetizers}">
+                    <img th:src="${item.imageUrl}" class="menu-image" th:alt="${item.name}">
+                    <h4 th:text="${item.name}">Bruschetta</h4>
+                    <p th:text="${item.description}">Fresh tomatoes and herbs on toasted bread</p>
+                    <p class="price" th:text="${#numbers.formatCurrency(item.price)}">$12.00</p>
+                </div>
+            </div>
+
+            <!-- Main Courses -->
+            <div class="col-md-4">
+                <h2 class="menu-section">Main Courses</h2>
+                <div class="menu-item" th:each="item : ${mainCourses}">
+                    <img th:src="${item.imageUrl}" class="menu-image" th:alt="${item.name}">
+                    <h4 th:text="${item.name}">Osso Buco</h4>
+                    <p th:text="${item.description}">Braised veal shanks with gremolata</p>
+                    <p class="price" th:text="${#numbers.formatCurrency(item.price)}">$38.00</p>
+                </div>
+            </div>
+
+            <!-- Desserts -->
+            <div class="col-md-4">
+                <h2 class="menu-section">Desserts</h2>
+                <div class="menu-item" th:each="item : ${desserts}">
+                    <img th:src="${item.imageUrl}" class="menu-image" th:alt="${item.name}">
+                    <h4 th:text="${item.name}">Tiramisu</h4>
+                    <p th:text="${item.description}">Classic Italian coffee-flavored dessert</p>
+                    <p class="price" th:text="${#numbers.formatCurrency(item.price)}">$10.00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div th:replace="fragments/footer :: footer"></div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>     
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
